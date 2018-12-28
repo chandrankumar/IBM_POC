@@ -1,0 +1,167 @@
+
+select * from std.address
+select * from std.classes
+select * from std.registration
+select * from std.relation_type
+select * from std.student_relationship
+select * from std.student 
+select * from std.parents
+
+insert into std.relation_type values(2,'Mother')
+select * from std.student 
+
+select * from std.parents
+
+alter table std.parents drop column address_id
+drop constraint SQL181227175018390
+
+select * from std.address
+select * from std.classes
+select * from std.registration
+select * from std.relation_type
+select * from std.student_relationship
+select * from std.student 
+select * from std.parents
+
+select * from std.address
+select * from std.classes
+select * from std.registration
+select * from std.relation_type
+select * from std.student_relationship
+select * from std.student 
+select * from std.parents
+
+
+select * from std.address
+select * from std.classes
+select * from std.registration
+select * from std.relation_type
+select * from std.student_relationship
+select * from std.student 
+select * from std.parents
+
+insert into std.relation_type values(2,'Mother')
+
+insert into std.classes values(1,'CSE','A')
+insert into std.classes values(2,'CSE','B')
+insert into std.classes values(3,'ECE','A')
+insert into std.classes values(4,'ECE','B')
+insert into std.classes values(5,'Mechanical','B')
+
+
+select * from std.student 
+
+select * from std.parents
+
+alter table std.parents drop column address_id
+drop constraint SQL181227175018390
+
+
+http://localhost:8080/ibm/student @POST
+{
+"studentId":null,
+"gender": "male",
+"firstName": "chandran",
+"lastName":"kumar",
+"contactNumber":"98876544344"
+}
+
+http://localhost:8080/ibm/student @GET
+[
+    {
+        "studentId": 1,
+        "gender": "male",
+        "firstName": "chandran",
+        "lastName": "kumar",
+        "contactNumber": "98876544344"
+    }
+]
+
+http://localhost:8080/ibm/parent @POST
+
+{
+	"studentId":1,
+
+    "parentId":null,
+
+    "name":"karthi",
+
+    "gender":"male",
+
+    "contactNumber":"66378909287",
+	
+	"addressVO":[{
+	
+	"addressId":null,
+
+    "country":"india",
+	
+    "state":"tamilnadu",
+
+    "city":"chennai",
+
+    "pincode":"600041",
+
+    "streetName":"besant nagar"
+	
+	}],
+  "relationshipVO":{
+  "relationshipId":1,
+  "relationshipType":"Father"
+  }
+}
+
+http://localhost:8080/ibm/mapped @POST
+{
+	"studentId":1,
+	"classId":1
+}
+
+
+http://localhost:8080/ibm/department @GET
+
+[
+    {
+        "departmentId": 1,
+        "departmentName": "CSE",
+        "section": "A"
+    },
+    {
+        "departmentId": 2,
+        "departmentName": "CSE",
+        "section": "B"
+    },
+    {
+        "departmentId": 3,
+        "departmentName": "ECE",
+        "section": "A"
+    },
+    {
+        "departmentId": 4,
+        "departmentName": "ECE",
+        "section": "B"
+    }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

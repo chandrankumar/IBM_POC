@@ -1,19 +1,16 @@
 package com.ibm.vo;
 
-import java.util.List;
-
-import org.dozer.Mapping;
-
-public class StudentVO{
+public class StudentVO {
 
     private int studentId;
 
-    private String studentName;
+    private String gender;
 
-    private String studentRollNumber;
+    private String firstName;
 
-    @Mapping("subject")
-    private List<SubjectVO> subjectVO;
+    private String lastName;
+
+    private String contactNumber;
 
     /**
      * @return the studentId
@@ -30,45 +27,59 @@ public class StudentVO{
     }
 
     /**
-     * @return the studentName
+     * @return the gender
      */
-    public String getStudentName() {
-	return studentName;
+    public String getGender() {
+	return gender;
     }
 
     /**
-     * @param studentName the studentName to set
+     * @param gender the gender to set
      */
-    public void setStudentName(String studentName) {
-	this.studentName = studentName;
+    public void setGender(String gender) {
+	this.gender = gender;
     }
 
     /**
-     * @return the studentRollNumber
+     * @return the firstName
      */
-    public String getStudentRollNumber() {
-	return studentRollNumber;
+    public String getFirstName() {
+	return firstName;
     }
 
     /**
-     * @param studentRollNumber the studentRollNumber to set
+     * @param firstName the firstName to set
      */
-    public void setStudentRollNumber(String studentRollNumber) {
-	this.studentRollNumber = studentRollNumber;
+    public void setFirstName(String firstName) {
+	this.firstName = firstName;
     }
 
     /**
-     * @return the subjectVO
+     * @return the lastName
      */
-    public List<SubjectVO> getSubjectVO() {
-	return subjectVO;
+    public String getLastName() {
+	return lastName;
     }
 
     /**
-     * @param subjectVO the subjectVO to set
+     * @param lastName the lastName to set
      */
-    public void setSubjectVO(List<SubjectVO> subjectVO) {
-	this.subjectVO = subjectVO;
+    public void setLastName(String lastName) {
+	this.lastName = lastName;
+    }
+
+    /**
+     * @return the contactNumber
+     */
+    public String getContactNumber() {
+	return contactNumber;
+    }
+
+    /**
+     * @param contactNumber the contactNumber to set
+     */
+    public void setContactNumber(String contactNumber) {
+	this.contactNumber = contactNumber;
     }
 
 }

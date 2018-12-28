@@ -9,7 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import com.ibm.model.Parent;
 import com.ibm.model.Student;
+import com.ibm.vo.ParentVO;
 import com.ibm.vo.StudentVO;
 
 @Configuration
@@ -29,6 +31,8 @@ public class MyConfig {
 			protected void configure() {
 				mapping(StudentVO.class,Student.class,TypeMappingOptions.mapNull(false),
 						TypeMappingOptions.mapEmptyString(false));
+				mapping(ParentVO.class,Parent.class,TypeMappingOptions.mapNull(false),
+					TypeMappingOptions.mapEmptyString(false));
 			}
 			
 		};

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,7 +15,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student", schema = "ibm")
+@Table(name = "student", schema = "std")
 public class Student implements Serializable {
 
     /**
@@ -25,74 +26,123 @@ public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "STUDT_SEQ")
     @SequenceGenerator(name = "STUDT_SEQ", sequenceName = "STUDENT_SEQ", allocationSize = 1)
-    @Column(name = "stud_id")
+    @Column(name = "student_id")
     private int studentId;
 
-    @Column(name = "stud_name")
-    private String studentName;
+    @Column(name = "gender")
+    private String gender;
 
-    @Column(name = "stud_roll")
-    private String studentRollNumber;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @OneToMany(mappedBy="student", cascade=CascadeType.ALL)
-    private List<Subject> subject;
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "contact_number")
+    private String contactNumber;
+
+    @OneToMany(mappedBy = "studentRelationshipId.student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<StudentRelationship> studentRelationship;
+
+    @OneToMany(mappedBy = "studentRegistrationId.student", cascade = CascadeType.ALL)
+    private List<Registration> registration;
 
     /**
      * @return the studentId
      */
     public int getStudentId() {
-        return studentId;
+	return studentId;
     }
 
     /**
      * @param studentId the studentId to set
      */
     public void setStudentId(int studentId) {
-        this.studentId = studentId;
+	this.studentId = studentId;
     }
 
     /**
-     * @return the studentName
+     * @return the gender
      */
-    public String getStudentName() {
-        return studentName;
+    public String getGender() {
+	return gender;
     }
 
     /**
-     * @param studentName the studentName to set
+     * @param gender the gender to set
      */
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setGender(String gender) {
+	this.gender = gender;
     }
 
     /**
-     * @return the studentRollNumber
+     * @return the firstName
      */
-    public String getStudentRollNumber() {
-        return studentRollNumber;
+    public String getFirstName() {
+	return firstName;
     }
 
     /**
-     * @param studentRollNumber the studentRollNumber to set
+     * @param firstName the firstName to set
      */
-    public void setStudentRollNumber(String studentRollNumber) {
-        this.studentRollNumber = studentRollNumber;
+    public void setFirstName(String firstName) {
+	this.firstName = firstName;
     }
 
     /**
-     * @return the subject
+     * @return the lastName
      */
-    public List<Subject> getSubject() {
-        return subject;
+    public String getLastName() {
+	return lastName;
     }
 
     /**
-     * @param subject the subject to set
+     * @param lastName the lastName to set
      */
-    public void setSubject(List<Subject> subject) {
-        this.subject = subject;
+    public void setLastName(String lastName) {
+	this.lastName = lastName;
     }
 
-    
-  
+    /**
+     * @return the contactNumber
+     */
+    public String getContactNumber() {
+	return contactNumber;
+    }
+
+    /**
+     * @param contactNumber the contactNumber to set
+     */
+    public void setContactNumber(String contactNumber) {
+	this.contactNumber = contactNumber;
+    }
+
+    /**
+     * @return the studentRelationship
+     */
+    public List<StudentRelationship> getStudentRelationship() {
+	return studentRelationship;
+    }
+
+    /**
+     * @param studentRelationship the studentRelationship to set
+     */
+    public void setStudentRelationship(List<StudentRelationship> studentRelationship) {
+	this.studentRelationship = studentRelationship;
+    }
+
+    /**
+     * @return the registration
+     */
+    public List<Registration> getRegistration() {
+	return registration;
+    }
+
+    /**
+     * @param registration the registration to set
+     */
+    public void setRegistration(List<Registration> registration) {
+	this.registration = registration;
+    }
+
 }
